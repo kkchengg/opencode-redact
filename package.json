@@ -1,0 +1,51 @@
+{
+  "name": "@kkcheng/opencode-redact",
+  "version": "0.1.0",
+  "description": "Two-way secret redaction for OpenCode v2: secrets are redacted before they reach the model and rehydrated just before a tool runs.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.zh-TW.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "redaction",
+    "secrets",
+    "privacy",
+    "security",
+    "vibeguard"
+  ],
+  "license": "MIT",
+  "author": "kk Cheng",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkchengg/opencode-redact.git"
+  },
+  "homepage": "https://github.com/kkchengg/opencode-redact#readme",
+  "bugs": {
+    "url": "https://github.com/kkchengg/opencode-redact/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}

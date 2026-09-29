@@ -1,0 +1,6 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Install from npm. OpenCode loads the plugin's default export.
+  "plugins": ["@kkcheng/opencode-redact@latest"]
+}
