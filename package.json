@@ -1,6 +1,6 @@
 {
   "name": "@kkchengg/opencode-redact",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Two-way secret redaction for OpenCode v2: secrets are redacted before they reach the model and rehydrated just before a tool runs.",
   "type": "module",
   "main": "./dist/index.js",
