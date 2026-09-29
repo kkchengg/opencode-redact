@@ -1,5 +1,5 @@
 /**
- * @kkcheng/opencode-redact
+ * @kkchengg/opencode-redact
  *
  * Two-way secret redaction for OpenCode v2.
  *

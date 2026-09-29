@@ -4,8 +4,8 @@
 
 [English](README.md) · [繁體中文](README.zh-TW.md) · [简体中文](README.zh-CN.md)
 
-[![npm](https://img.shields.io/npm/v/@kkcheng/opencode-redact)](https://www.npmjs.com/package/@kkcheng/opencode-redact)
-[![license](https://img.shields.io/npm/l/@kkcheng/opencode-redact)](./LICENSE)
+[![npm](https://img.shields.io/npm/v/@kkchengg/opencode-redact)](https://www.npmjs.com/package/@kkchengg/opencode-redact)
+[![license](https://img.shields.io/npm/l/@kkchengg/opencode-redact)](./LICENSE)
 
 `opencode-redact` 会在你的 OpenCode 对话中，于内容**发送给模型之前**，把 API 密钥、令牌、密码等密钥替换为稳定的占位符；随后在**工具执行之前**把占位符还原成真实值。模型永远看不到密钥，但工具仍能拿到真值。
 
@@ -35,7 +35,7 @@ OpenCode v2 更换了插件 API，因此 `opencode-vibeguard` 这类 V1 隐私�
 // ~/.config/opencode/opencode.json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugins": ["@kkcheng/opencode-redact@latest"]
+  "plugins": ["@kkchengg/opencode-redact@latest"]
 }
 ```
 
