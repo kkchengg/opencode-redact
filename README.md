@@ -4,8 +4,8 @@
 
 [English](README.md) · [繁體中文](README.zh-TW.md) · [简体中文](README.zh-CN.md)
 
-[![npm](https://img.shields.io/npm/v/@kkchengg/opencode-redact)](https://www.npmjs.com/package/@kkchengg/opencode-redact)
-[![license](https://img.shields.io/npm/l/@kkchengg/opencode-redact)](./LICENSE)
+[![npm](https://img.shields.io/npm/v/%40kkchengg%2Fopencode-redact)](https://www.npmjs.com/package/@kkchengg/opencode-redact)
+[![license](https://img.shields.io/npm/l/%40kkchengg%2Fopencode-redact)](./LICENSE)
 
 `opencode-redact` replaces API keys, tokens, passwords and other secrets in your
 OpenCode conversation with stable placeholders **before** they are sent to the
