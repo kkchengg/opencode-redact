@@ -7,7 +7,7 @@
 [![npm](https://img.shields.io/npm/v/@kkcheng/opencode-redact)](https://www.npmjs.com/package/@kkcheng/opencode-redact)
 [![license](https://img.shields.io/npm/l/@kkcheng/opencode-redact)](./LICENSE)
 
-`opencode-redact` 会在你的 OpenCode 对话中，于内容**发送给模型之前**，把 API 密钥、令牌、密码等机密替换为稳定的占位符；随后在**工具执行之前**把占位符还原成真实值。模型永远看不到机密，但工具仍能拿到真值。
+`opencode-redact` 会在你的 OpenCode 对话中，于内容**发送给模型之前**，把 API 密钥、令牌、密码等密钥替换为稳定的占位符；随后在**工具执行之前**把占位符还原成真实值。模型永远看不到密钥，但工具仍能拿到真值。
 
 ## 为什么需要它
 
@@ -17,15 +17,15 @@ OpenCode v2 更换了插件 API，因此 `opencode-vibeguard` 这类 V1 隐私�
 
 ```text
                     脱敏                        还原
-提示 ──▶ [REDACTED:aws-access-key:…] ──▶ 模型 ──▶ 工具输入 ──▶ 真实机密
+提示 ──▶ [REDACTED:aws-access-key:…] ──▶ 模型 ──▶ 工具输入 ──▶ 真实密钥
          (prompt + context 钩子)               (execute.before 钩子)
 ```
 
 - **`prompt`** — 在你输入的文字被保存之前就进行脱敏。
 - **`context`** — 在请求发送前，脱敏系统提示、消息历史（含先前的工具输出）与工具定义。
-- **`execute.before`** — 在工具输入中把占位符还原成真实机密，让需要该值的命令仍能运行。
+- **`execute.before`** — 在工具输入中把占位符还原成真实密钥，让需要该值的命令仍能运行。
 
-每个机密都会变成稳定的令牌 `[REDACTED:<规则>:<指纹>]`。同一个机密永远得到同一个令牌，因此模型仍可引用它。
+每个密钥都会变成稳定的令牌 `[REDACTED:<规则>:<指纹>]`。同一个密钥永远得到同一个令牌，因此模型仍可引用它。
 
 ## 安装
 
@@ -41,7 +41,7 @@ OpenCode v2 更换了插件 API，因此 `opencode-vibeguard` 这类 V1 隐私�
 
 **作为本地文件直接放入** — 将 `src/index.ts` 复制到 `~/.config/opencode/plugins/redact/index.ts`。全局插件会自动加载，无需配置文件条目。
 
-## 会检测的机密
+## 会检测的密钥
 
 | 规则 | 匹配 |
 |------|------|
@@ -58,7 +58,7 @@ OpenCode v2 更换了插件 API，因此 `opencode-vibeguard` 这类 V1 隐私�
 | `pypi-token` | `pypi-…` |
 | `jwt` | 以 `eyJ` 开头、由点分隔的三段 base64url |
 | `private-key` | PEM `-----BEGIN … PRIVATE KEY-----` 区块 |
-| `credential` | `password: …`、`api_key=…`、`secret=…`、`token: …` |
+| `credential` | `password: …`, `api_key=…`, `secret=…`, `token: …` |
 
 ## 覆盖范围与限制
 
@@ -66,8 +66,8 @@ OpenCode v2 更换了插件 API，因此 `opencode-vibeguard` 这类 V1 隐私�
 
 **不受保护**
 
-- 上表未列出的机密格式。
-- 经 base64 编码、加密或被拆分成多段的机密，以及不符合 `key = value` 形式的密码。
+- 上表未列出的密钥格式。
+- 经 base64 编码、加密或被拆分成多段的密钥，以及不符合 `key = value` 形式的密码。
 - 大型或二进制字符串（`data:` URI、过大的 base64 块）会被刻意跳过，以免破坏图片与文件。
 - 保险库位于进程内：服务重启后，旧历史中的占位符将无法还原。
 - 还原取决于模型是否原样返回占位符。
